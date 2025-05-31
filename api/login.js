@@ -1,34 +1,20 @@
-<<<<<<< HEAD
-// /api/login.js
-=======
->>>>>>> 2283730ce0201792581eba93299bc4b5e1668029
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
-    res.status(405).json({ error: "Method not allowed" });
-    return;
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
-<<<<<<< HEAD
-  // ¡Sólo aquí defines los usuarios!
-  const USERS = {
-    admin: { password: "admin123", role: "admin" },
-    contributor01: { password: "pass01", role: "contributor" },
-    contributor02: { password: "pass02", role: "contributor" },
-    // ...
-  };
+  // Recoge usuarios/contraseñas solo de variables de entorno
+  const USERS = {};
+  if (process.env.ADMIN_USER && process.env.ADMIN_PASS) {
+    USERS[process.env.ADMIN_USER] = { password: process.env.ADMIN_PASS, role: "admin" };
+  }
+  if (process.env.CONTRIB01_USER && process.env.CONTRIB01_PASS) {
+    USERS[process.env.CONTRIB01_USER] = { password: process.env.CONTRIB01_PASS, role: "contributor" };
+  }
+  // Añade más usuarios según necesites
 
-  const { username, password } = req.body || {};
-=======
-  // Recupera usuarios y contraseñas solo de variables de entorno
-  const USERS = {
-    [process.env.ADMIN_USER]: { password: process.env.ADMIN_PASS, role: "admin" },
-    [process.env.CONTRIB01_USER]: { password: process.env.CONTRIB01_PASS, role: "contributor" },
-    [process.env.CONTRIB02_USER]: { password: process.env.CONTRIB02_PASS, role: "contributor" },
-    // Añade más usuarios según lo necesites
-  };
-
+  // Maneja el body, que puede llegar como string en Vercel
   let body = req.body;
-  // Si deployas en Vercel, puede que sea string y no JSON ya
   if (typeof body === "string") {
     try {
       body = JSON.parse(body);
@@ -38,17 +24,15 @@ export default function handler(req, res) {
   }
 
   const { username, password } = body || {};
->>>>>>> 2283730ce0201792581eba93299bc4b5e1668029
 
   if (!username || !password) {
-    res.status(400).json({ error: "Missing fields" });
-    return;
+    return res.status(400).json({ error: "Missing fields" });
   }
 
   const user = USERS[username];
   if (user && user.password === password) {
-    res.status(200).json({ ok: true, username, role: user.role });
+    return res.status(200).json({ ok: true, username, role: user.role });
   } else {
-    res.status(401).json({ ok: false, error: "Credenciales incorrectas" });
+    return res.status(401).json({ ok: false, error: "Credenciales incorrectas" });
   }
 }
