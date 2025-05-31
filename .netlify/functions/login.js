@@ -11,6 +11,7 @@ exports.handler = async (event) => {
   // Usuarios y contraseñas desde variables de entorno
   const USERS = {
     [process.env.ADMIN_USER]: { password: process.env.ADMIN_PASS, role: "admin" },
+    [process.env.ADMIN2_USER]: { password: process.env.ADMIN2_PASS, role: "admin" },
     [process.env.CONTRIB01_USER]: { password: process.env.CONTRIB01_PASS, role: "contributor" },
     [process.env.CONTRIB02_USER]: { password: process.env.CONTRIB02_PASS, role: "contributor" },
     // Añade más usuarios si lo necesitas
