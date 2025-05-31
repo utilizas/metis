@@ -1,5 +1,5 @@
 ---
-title: "Sobre el potencial de los agentes IA especializados en textos filosóficos"
+title: "Sobre el potencial de los agentes IA especializados [ejemplo/prueba]"
 author: "M. Luzón "
 date: "2025-05-31"
 tags: IA agencial, interpretación, analítica textual,
