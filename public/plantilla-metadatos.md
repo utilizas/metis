@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: "Sobre el potencial de los agentes IA especializados en textos filosóficos"
+=======
+title: "Sobre el potencial de los agentes IA especializados [ejemplo/prueba]"
+>>>>>>> 2283730ce0201792581eba93299bc4b5e1668029
 author: "M. Luzón "
 date: "2025-05-31"
 tags: IA agencial, interpretación, analítica textual,
