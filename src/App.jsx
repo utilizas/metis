@@ -150,8 +150,8 @@ export default function App() {
       {/* Barra superior */}
       <header className="flex flex-col md:flex-row items-center justify-between px-6 py-3 shadow bg-zinc-950">
         <div>
-          <h1 className="text-2xl font-bold">Ensayos, notas y comentarios académicos</h1>
-          <p className="text-sm text-zinc-400">Plataforma colaborativa sobre trabajos y debates en curso</p>
+          <h1 className="text-2xl font-bold">Ensayos, notas y comentarios</h1>
+          <p className="text-sm text-zinc-400">Plataforma colaborativa sobre trabajos académicos y debates en curso</p>
           <div className="mt-2 flex gap-4">
             <a
               href="/plantilla-metadatos.md"
